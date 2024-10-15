@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+ {% block  content %}
+<div class="col-lg-10 py-5 bg-light my-3">
+    <div class="row">
+        <div class="col">
+            <h2 class="text-info">E-Learning /
+                <small class="text-muted">Test</small>
+            </h2>
+        </div>
+    </div>
+    <!-- Link Card -->
+    <div class="d-flex flex-row justify-content-center align-items-center" style="height: 200px;">
+      <div class="p-2">
+        <h1>Students Performance Prediction
+        </h1>
+      </div>
+  </div>
+    <div class="row">
+      <div class="col-sm-2">
+
+      </div>
+      <div class="col-sm-8 formcss">
+        <!--{% url 'results' %}-->
+        <form action="" method="POST" class="needs-validation" id="task-form" novalidate>
+          {% csrf_token %}
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Gender:</label>
+                <select class="form-control" method="post" id="exampleFormControlSelect1" name="gender">
+                  <option value="{{gender}}" selected>{{gender}}</option>
+                  {% for gender in gender %}
+                  <option value="{{gender}}">{{gender}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="exampleFormControlSelect2">Region:</label>
+                <select class="form-control" method="post" id="exampleFormControlSelect2" name="region">
+                  <option value="{{region}}" selected>{{region}}</option>
+                  {% for region in region %}
+                  <option value="{{region}}">{{region}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Highest Education:</label>
+                <select class="form-control" method="post" id="exampleFormControlSelect1" name="highest_education">
+                  <option value="{{highest_education}}" selected>{{highest_education}}</option>
+                  {% for highest_education in highest_education %}
+                  <option value="{{highest_education}}">{{highest_education}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="exampleFormControlSelect2">IMD Band:</label>
+                <select class="form-control" method="post" id="exampleFormControlSelect2" name="imd_band">
+                  <option value="{{imd_band}}" selected>{{imd_band}}</option>
+                  {% for imd_band in imd_band %}
+                  <option value="{{imd_band}}">{{imd_band}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Age Group:</label>
+                <select class="form-control" method="post" id="exampleFormControlSelect1" name="age_band">
+                  <option value="{{age_band}}" selected>{{age_band}}</option>
+                  {% for age_band in age_band %}
+                  <option value="{{age_band}}">{{age_band}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="exampleFormControlSelect2">Number Of Previous Attempts:</label>
+                <select class="form-control"  method="post" id="exampleFormControlSelect2" name="num_of_prev_attempts">
+                  <option value="{{num_of_prev_attempts}}" selected>{{num_of_prev_attempts}}</option>
+                  {% for num_of_prev_attempts in num_of_prev_attempts %}
+                  <option value="{{num_of_prev_attempts}}">{{num_of_prev_attempts}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Semester:</label>
+                <select class="form-control" method="post" id="exampleFormControlSelect1" name="is_banked">
+                  <option value="{{is_banked}}" selected>{{is_banked}}</option>
+                  {% for is_banked in is_banked %}
+                  <option value="{{is_banked}}">{{is_banked}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="exampleFormControlSelect2">First Module:</label>
+                <select class="form-control" method="post" id="exampleFormControlSelect2" name="code_module_x">
+                  <option value="{{code_module_x}}" selected>{{code_module_x}}</option>
+                  {% for code_module_x in code_module_y %}
+                  <option value="{{code_module_x}}">{{code_module_x}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Semester (First Module):</label>
+                <select class="form-control" method="post" id="exampleFormControlSelect1" name="code_presentation_x">
+                  <option value="{{code_presentation_x}}" selected>{{code_presentation_x}}</option>
+                  {% for code_presentation_x in code_presentation_x %}
+                  <option value="{{code_presentation_x}}">{{code_presentation_x}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="exampleFormControlSelect2">Second Module:</label>
+                <select class="form-control" method="post" id="exampleFormControlSelect2" name="code_module_y">
+                  <option value="{{code_module_y}}" selected>{{code_module_y}}.</option>
+                  {% for code_module_y in code_module_y %}
+                  <option value="{{code_module_y}}">{{code_module_y}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Semester (Second Module):</label>
+                <select class="form-control" method="post" id="exampleFormControlSelect1" name="code_presentation_y">
+                  <option value="{{code_presentation_y}}" selected>{{code_presentation_y}}</option>
+                  {% for code_presentation_y in code_presentation_y %}
+                  <option value="{{code_presentation_y}}">{{code_presentation_y}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex flex-row justify-content-center align-items-center">
+            <div class="p-2">
+              <input type="submit" value="Predict" class="btn brand z-depth-0" style="float: center;">
+            </div>
+        </form>
+
+      </div>
+      <div class="col-sm-2">
+
+      </div>
+    </div>
+
+    </div>
+</div>
+{% endblock %} 
+

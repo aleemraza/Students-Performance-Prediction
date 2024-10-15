@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Students Performance Prediction</title>
+    {% load static %} 
+    <style>
+.viewport-max {
+    min-height: 100vh;
+}
+.sidebar {
+    border-right: 1px solid rgba(0, 0, 0, .2);
+}
+.contact-form{
+    background: #fff;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    width: 70%;
+}
+.contact-form .form-control{
+    border-radius:1rem;
+}
+.contact-image{
+    text-align: center;
+}
+.contact-image img{
+    border-radius: 6rem;
+    width: 11%;
+    margin-top: -3%;
+    transform: rotate(29deg);
+}
+.contact-form form{
+    padding: 20%;
+}
+.contact-form form .row{
+    margin-bottom: -7%;
+}
+.contact-form h3{
+    margin-bottom: 8%;
+    margin-top: -10%;
+    text-align: center;
+    color: #0062cc;
+}
+.contact-form .btnContact {
+    width: 50%;
+    border: none;
+    border-radius: 1rem;
+    padding: 1.5%;
+    background: #dc3545;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+}
+.btnContactSubmit
+{
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    color: #fff;
+    background-color: #0062cc;
+    border: none;
+    cursor: pointer;
+}
+.formcss .form-control{
+    border-radius:1rem;
+}
+.formcss .btnsubmt{
+    padding: 20.5%;
+    border: none;
+    border-radius: 1rem;
+    background: #dc3545;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <h1 class="text-warning">Students Performance Prediction </h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse justify-content-end" id="navbarMenu">
+                <ul class="navbar-nav d-md-none ">
+                    <li class="nav-item">
+                        <a class="nav-link text-muted active" href="{% url 'dashboard' %}">
+                            <i class="fas fa-home mr-2"></i>Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item bg-light">
+                        <a class="nav-link" href="#">
+                            <i class="mr-2 fas fa-info-circle"></i>  Dataset Attributes
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">
+                            <i class="mr-2 fas fa-envelope-open"></i> Contact Us
+                        </a>
+                    </li>
+                </ul>
+
+
+                <ul class="navbar-nav">
+                    <li class="nav-item mr-5">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal">
+                            <img src="https://cdn1.iconfinder.com/data/icons/avatar-2-2/512/Manager-512.png" width="30" alt="" class=" img-fluid rounded-circle">
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#signOutModal">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-2 sidebar d-flex flex-column list-group list-group-flush viewport-max ">
+                    <a href="#" class="list-group-item list-group-item-action text-center">
+                        {% if user_image %}
+                        <img  style="border-radius: 50%;" src="{{ user_image.url }}" alt="" class="img-fluid rounded-circle mr-2" width="300" height="300">
+                        {% endif %}
+                         {{ request.user.username|capfirst }}
+                    </a>
+                    <a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action menu-items active">
+                        <i class="fas fa-columns mr-2 fa-lg"></i>Home</a>
+                     <a href="{% url 'home' %}" class="list-group-item list-group-item-action menu-items">
+                        <i class="fas fa-users mr-2 fa-lg"></i>Performance Predection</a>
+                    <a href="{% url 'testdata' %}" class="list-group-item list-group-item-action menu-items">
+                        <i class="fas fa-users mr-2 fa-lg"></i>All Test</a>         
+                    <a href="{% url 'about' %}" class="list-group-item list-group-item-action menu-items">
+                        <i class="mr-2 fas fa-info-circle"></i>  Dataset Attributes </a>
+                    <a href="{% url 'contact' %}" class="list-group-item list-group-item-action menu-items">
+                        <i class="fas fa-envelope mr-2 fa-lg"></i>Contact Us</a>
+
+                </div>
+                <!-- MAIN CARDS-->
+
+                {% block  content %}
+
+
+                {% endblock %}
+      
+            </div>
+    </section>
+
+    <div class="modal fade" id="signOutModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Already want to leave?</h2>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="lead">It is sad to see you go. Please press logout to leave.</p>
+                </div>
+                
+                <div class="modal-footer">
+                    <button   class="btn btn-danger" id="logoutBtn" type="button" data-dismiss="modal">
+                        Logout
+                    </button>
+                    <div class="btn btn-primary" type="button">Stay</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">User Profile</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <p>{{usernames}}</p>
+                <p>{{useremail}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+        {% load static %}  
+        <script src="{% static '/line.js' %}"></script>
+        <script src="{% static '/sample.js' %}"></script>
+        <script src="{% static '/pie.js' %}"></script>
+
+    <script>
+        window.addEventListener('load', function () {
+
+            document.querySelector('.navbar-toggler').innerHTML = '<i class="fas fa-arrow-down"></i>';
+        })
+
+        document.getElementById("logoutBtn").addEventListener("click", function() {
+        window.location.href = "{% url 'logout' %}";
+        
+    });
+
+  
+       
+    </script>
+</body>
+
+</html>

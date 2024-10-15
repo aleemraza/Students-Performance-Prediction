@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+ {% block  content %}
+
+
+
+<div class="wrapper row3 align-items-center">
+    <main class="hoc container clear">
+        <div class="content">
+            <h1>Open University Learning Analytics Dataset Characteristics</h1>
+            <ul>
+                <li>Multivariate dataset</li>
+                <li>There are 46,412 number of records</li>
+                <li>The dataset consists of data about courses, students and their interactions with Virtual Learning Environment(VLE) for seven selected courses (called modules)</li>
+                <li>Presentations of the course start in February and October</li>
+                <li>All tables are stored in the csv format</li>
+            </ul>
+            <p align="justify">
+                <br>
+                <h1>Attributes of dataset</h1>
+                <!--
+                    <img class="imgr borderedbox inspace-5" src="../static/images/demo/imgr.gif" alt="">
+                    -->
+                <ul>
+                    <li><strong>Gender</strong>: The student’s gender</li>
+                    <li><strong>Region</strong>: Identifies the geographic region, where the student lived while taking the module-presentation</li>
+                    <li><strong>Highest Education</strong>: Highest student education level on entry to the module presentation</li>
+                    <li><strong>Imd Band</strong>: Specifies the Index of Multiple Depravation band of the place where the student lived during the module-presentation</li>
+                    <li><strong>Age Group</strong>: Band of the student’s age</li>
+                    <li><strong>Number Of Previous Attempts</strong>: The number times the student has attempted this module</li>
+                    <li><strong>Semester</strong>: A status flag indicating that the Semester</li>
+                    <li><strong>First Module</strong>: Code name of the module, which serves as the identifier</li>
+                    <li><strong>Semester (First Module)</strong>: Code name of the presentation. It consists of the year and “B” for the presentation starting in February and “J” for the presentation starting in October</li>
+                    <li><strong>Second Module</strong>: Code name of the module, which serves as the identifier</li>
+                    <li><strong>Semester (Second Module)</strong>: Code name of the presentation. It consists of the year and “B” for the presentation starting in February and “J” for the presentation starting in October</li>
+                    <li><strong>Final Result</strong>: Student’s final result in the module-presentation</li>
+                </ul>
+            </p>
+        </div>
+
+
+
+
+
+
+ {% endblock %} 

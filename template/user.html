@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Pclass</th>
+                <th>Sex</th>
+                <th>Age</th>
+                <!-- Add more columns as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in pasenger %}
+            <tr>
+                <td>{{ p.id }}</td>
+                <td>{{ p.pclass }}</td>
+                <td>{{ p.sex }}</td>
+                <td>{{ p.age }}</td>
+                <td>{{ p.sibsp }}</td>
+                <td>{{ p.parch }}</td>
+                <td>{{ p.fare }}</td>
+                <td>{{ p.embC }}</td>
+                <td>{{ p.embQ }}</td>
+                <td>{{ p.embS }}</td>
+                <td>{{ p.results }}</td>
+                <!-- Add more columns as needed -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
